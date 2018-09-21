@@ -25,8 +25,8 @@ end
 
   post '/attack' do
   @game = $game
-  @game.attack(@game.player2)
-
+  @game.attack(@game.turn, @game.opponent_of(@game.turn))
+  @game.switch
   erb :attack
   end
 

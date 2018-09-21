@@ -8,8 +8,8 @@ class Game
     @turn = player1
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack(player1, player2)
+    player2.receive_damage
   end
 
   def player1
@@ -21,6 +21,10 @@ class Game
   end
 
   def switch
-    @turn == player2 ? @turn = player1 : @turn = player2
+    @turn = opponent_of(@turn)
+  end
+
+  def opponent_of(person)
+    @players.select { |player| player != person }.first
   end
 end

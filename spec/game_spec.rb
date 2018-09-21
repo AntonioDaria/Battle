@@ -9,7 +9,7 @@ describe Game do
   describe "#attack" do
     it "damages the player" do
        expect(mittens).to receive(:receive_damage)
-       game.attack(mittens)
+       game.attack(dave, mittens)
      end
   end
 
